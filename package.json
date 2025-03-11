@@ -1,8 +1,8 @@
 {
   "name": "360-display",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://axidragon.github.io/360-display/",
+  "homepage": "./",
   "dependencies": {
     "@react-three/drei": "^10.0.4",
     "@react-three/fiber": "^9.0.4",
