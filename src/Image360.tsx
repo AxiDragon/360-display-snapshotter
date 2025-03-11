@@ -7,16 +7,14 @@ import images from './assets/images';
 
 function Image360() {
 	const [texture, setTexture] = useState(new THREE.TextureLoader().load(""));
-	const { scene, gl } = useThree();
+	const { scene } = useThree();
 	const params = useParams();
 
 	useEffect(() => {
 		texture.mapping = THREE.EquirectangularReflectionMapping;
+		texture.colorSpace = THREE.SRGBColorSpace;
 		scene.background = texture;
 		scene.environment = texture;
-
-		gl.toneMapping = THREE.ACESFilmicToneMapping;
-		gl.toneMappingExposure = 0.5;
 	}, [scene, texture]);
 
 	useEffect(() => {
