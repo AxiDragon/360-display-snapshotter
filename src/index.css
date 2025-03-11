@@ -6,4 +6,23 @@ html,
 	font-family: 'Roboto', sans-serif;
 	width: 100%;
 	height: 100%;
+	background-color: rgb(12, 12, 40);
+}
+
+.no-input-warning {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	justify-content: center;
+	top: 25px;
+	transition: opacity 0.5s;
+	pointer-events: none;
+}
+
+.no-input-warning-content {
+	padding: 15px 25px;
+	border-radius: 15px;
+	background: rgba(255, 255, 255, 0.5);
+	text-align: center;
+	pointer-events: all;
 }
