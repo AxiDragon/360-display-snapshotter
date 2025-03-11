@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Router>
+    <Router basename='/360-display/'>
       <Routes>
         <Route path="/" element={
           <>

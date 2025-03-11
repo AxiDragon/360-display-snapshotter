@@ -9,7 +9,7 @@ function NoInput() {
 
 	return (
 		<div className="no-input-warning" style={{ opacity: hidden ? 0 : 1 }}>
-			<div className="no-input-warning-content">
+			<div className="no-input-warning-content" style={{ pointerEvents: hidden ? "none" : "all" }}>
 				<p>You haven't loaded a 360° image!</p>
 				<Image360Input />
 				<p>There's also {images.length} default images, like this one. To look at those, put the index (1 to {images.length}) after the URL, like:</p>
