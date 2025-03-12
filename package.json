@@ -1,6 +1,6 @@
 {
-  "name": "360-display",
-  "version": "1.0.0",
+  "name": "360-display-snapshotter",
+  "version": "0.1.0",
   "private": true,
   "homepage": "./",
   "dependencies": {
@@ -15,7 +15,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/three": "^0.174.0",
-    "360-display": "file:",
+    "360-display-snapshotter": "file:",
     "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
