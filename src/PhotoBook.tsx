@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { getBlobUrlPhotos } from "./PhotoSaver";
 
 function PhotoBook() {
 	const [photos, setPhotos] = useState<string[]>([]);
@@ -10,11 +11,19 @@ function PhotoBook() {
 	}
 
 	useEffect(() => {
+		async function fetchPhotos() {
+			setPhotos(await getBlobUrlPhotos());
+		}
+
+		fetchPhotos();
+	}, []);
+
+	useEffect(() => {
 		const snapshotTaken = (e: Event) => {
 			const customEvent = e as CustomEvent;
 
 			if (params.mode !== 'liminal') {
-				setPhotos((photos) => [...photos, customEvent.detail]);
+				setPhotos((photos) => [...photos, customEvent.detail.url]);
 			}
 		}
 
@@ -23,7 +32,7 @@ function PhotoBook() {
 		return () => {
 			window.removeEventListener('snapshot-taken', snapshotTaken);
 		}
-	}, [params]);
+	}, [params, photos]);
 
 	return (
 		<div className="photo-book" style={{ padding: photos[0] ? 10 : 0 }}>

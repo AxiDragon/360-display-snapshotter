@@ -5,22 +5,13 @@ function SnapshotCamera() {
 	const { scene, camera, gl } = useThree();
 
 	useEffect(() => {
-		const takeSnapshot = () => {
+		const takeSnapshot = async () => {
 			gl.render(scene, camera);
-			const dataUrl = gl.domElement.toDataURL("image/png");
-
-			const byteString = atob(dataUrl.split(',')[1]);
-			const mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
-			const ab = new ArrayBuffer(byteString.length);
-			const ia = new Uint8Array(ab);
-			for (let i = 0; i < byteString.length; i++) {
-				ia[i] = byteString.charCodeAt(i);
-			}
-			const blob = new Blob([ab], { type: mimeString });
-
+			const encodedUrl = gl.domElement.toDataURL("image/jpeg");
+			const blob = await fetch(encodedUrl).then((response) => response.blob())
 			const url = URL.createObjectURL(blob);
 
-			window.dispatchEvent(new CustomEvent("snapshot-taken", { detail: url }));
+			window.dispatchEvent(new CustomEvent("snapshot-taken", { detail: { url, encodedUrl, blob } }));
 		};
 
 		window.addEventListener("take-snapshot", takeSnapshot);

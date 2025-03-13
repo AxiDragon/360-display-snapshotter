@@ -38,7 +38,7 @@ html,
 }
 
 .photo {
-	width: 20%;
+	max-height: 20vh;
 	padding: 10px;
 	background-color: whitesmoke;
 	cursor: pointer;

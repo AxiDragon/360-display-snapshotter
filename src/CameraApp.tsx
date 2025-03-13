@@ -1,5 +1,6 @@
 import Display360 from "./Display360";
 import PhotoBook from "./PhotoBook";
+import PhotoSaver from "./PhotoSaver";
 import SnapshotCameraControls from "./SnapshotCameraControls";
 
 function CameraApp() {
@@ -8,6 +9,7 @@ function CameraApp() {
 			<Display360 />
 			<SnapshotCameraControls />
 			<PhotoBook />
+			<PhotoSaver />
 		</>
 	)
 }
