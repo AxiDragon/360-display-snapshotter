@@ -14,7 +14,9 @@ function NoInput() {
 				<Image360Input />
 				<p>There's also {images.length} default images, like this one. To look at those, put #/ and the index (1 to {images.length}) after the URL, like:</p>
 				<p>{location}#/1 or {location}#/{images.length}</p>
-				<p>Also, a fun fact: you can toggle fullscreen by pressing F11.</p>
+				<p>In order to take pictures, clicking the 📷 button at the bottom of the screen.</p>
+				<p>You can toggle the photo gallery by clicking the semi-circle at the top.</p>
+				<p>You can click on photos in the photo gallery to view them in full size.</p>
 				<p onClick={() => setHidden(true)} style={{ cursor: "pointer" }}>
 					<b>If you just want to look at this image, you can dismiss this message by clicking here. Have fun!</b>
 				</p>

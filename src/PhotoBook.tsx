@@ -40,7 +40,7 @@ function PhotoBook() {
 	}, [params, photos]);
 
 	return (
-		<div className="photo-book-container" style={{ opacity: visible ? 1 : 0.5, translate: visible ? 0 : '0 calc(-100% + 2rem)' }} >
+		<div className="photo-book-container" style={{ opacity: visible ? 1 : 0.2, translate: visible ? 0 : '0 calc(-100% + 2rem)' }} >
 			<div className="photo-book">
 				<div className="photo-roll">
 					{photos.map((photo, index) =>
