@@ -8,7 +8,7 @@ function SnapshotCamera() {
 		const takeSnapshot = async () => {
 			gl.render(scene, camera);
 			const encodedUrl = gl.domElement.toDataURL("image/jpeg");
-			const blob = await fetch(encodedUrl).then((response) => response.blob())
+			const blob = await fetch(encodedUrl).then((response) => response.blob());
 			const url = URL.createObjectURL(blob);
 
 			window.dispatchEvent(new CustomEvent("snapshot-taken", { detail: { url, encodedUrl, blob } }));
