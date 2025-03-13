@@ -25,7 +25,7 @@ function Image360() {
 		const snapshotTaken = (e: Event) => {
 			const customEvent = e as CustomEvent;
 
-			setTexture(new THREE.TextureLoader().load(customEvent.detail));
+			setTexture(new THREE.TextureLoader().load(customEvent.detail.url));
 		}
 
 		window.addEventListener('snapshot-taken', snapshotTaken);
