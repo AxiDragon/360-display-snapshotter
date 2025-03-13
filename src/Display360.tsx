@@ -3,6 +3,7 @@ import { DeviceOrientationControls, OrbitControls, PerspectiveCamera } from '@re
 import { Canvas } from '@react-three/fiber';
 
 import Image360 from './Image360';
+import SnapshotCamera from './SnapshotCamera';
 
 function Display360() {
   const [supportsDeviceOrientation, setSupportsDeviceOrientation] = useState(false);
@@ -26,6 +27,7 @@ function Display360() {
 
   return (
     <Canvas>
+      <SnapshotCamera />
       <Image360 />
       {supportsDeviceOrientation ? <DeviceOrientationControls /> : <OrbitControls enablePan={false} />}
       <PerspectiveCamera makeDefault fov={55} position={[1, 0, 0]} /> {/* For some reason, position can't be 0, 0, 0 otherwise the controls no longer work */}

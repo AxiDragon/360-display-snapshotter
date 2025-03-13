@@ -25,3 +25,13 @@ html,
 	background: rgba(255, 255, 255, 0.5);
 	text-align: center;
 }
+
+.camera-controls {
+	position: absolute;
+	bottom: 25px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

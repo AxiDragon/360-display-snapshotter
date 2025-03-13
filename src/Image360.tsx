@@ -42,10 +42,7 @@ function Image360() {
 		}
 	}, [params]);
 
-	return (
-		<>
-		</>
-	);
+	return null;
 }
 
 export default Image360;

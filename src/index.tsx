@@ -5,6 +5,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Display360 from './Display360';
 import NoInput from './NoInput';
 import './index.css';
+import SnapshotCameraControls from './SnapshotCameraControls';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,9 +18,14 @@ root.render(
         <Route path="/" element={
           <>
             <Display360 />
+            <SnapshotCameraControls />
             <NoInput />
           </>} />
-        <Route path="/:imgUrl" element={<Display360 />} />
+        <Route path="/:imgUrl" element={
+          <>
+            <Display360 />
+            <SnapshotCameraControls />
+          </>} />
       </Routes>
     </Router>
   </React.StrictMode>
