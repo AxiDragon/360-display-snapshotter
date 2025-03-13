@@ -37,6 +37,27 @@ html,
 	align-items: center;
 }
 
+.camera-controls button {
+	border: none;
+	background-color: whitesmoke;
+	font-size: 25px;
+	border-radius: 50%;
+	padding: 15px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.camera-controls button:hover {
+	transform: scale(1.1);
+	background-color: lightgray;
+}
+
+.camera-controls button:active {
+	transform: scale(0.9);
+}
+
+
+
 .photo {
 	display: inline-block;
 	max-height: 20vh;
