@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "./static/css/main.3000c1e0.css",
-    "main.js": "./static/js/main.0e5d1fc3.js",
+    "main.css": "./static/css/main.6b55b61b.css",
+    "main.js": "./static/js/main.c7b6b29a.js",
     "static/media/hoofdplaat.jpg": "./static/media/hoofdplaat.27c0575485b759b2a37a.jpg",
     "static/media/svedjehamn.jpg": "./static/media/svedjehamn.01893673e8731301be39.jpg",
     "static/media/vlieland.jpg": "./static/media/vlieland.ac64e43c522a325c2dc3.jpg",
     "static/media/texel.jpg": "./static/media/texel.67dc648f8b1e16c4803d.jpg",
     "static/media/b9088.jpg": "./static/media/b9088.665a398af862db0555aa.jpg",
     "index.html": "./index.html",
-    "main.3000c1e0.css.map": "./static/css/main.3000c1e0.css.map",
-    "main.0e5d1fc3.js.map": "./static/js/main.0e5d1fc3.js.map"
+    "main.6b55b61b.css.map": "./static/css/main.6b55b61b.css.map",
+    "main.c7b6b29a.js.map": "./static/js/main.c7b6b29a.js.map"
   },
   "entrypoints": [
-    "static/css/main.3000c1e0.css",
-    "static/js/main.0e5d1fc3.js"
+    "static/css/main.6b55b61b.css",
+    "static/js/main.c7b6b29a.js"
   ]
 }
