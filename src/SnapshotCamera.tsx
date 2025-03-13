@@ -8,7 +8,19 @@ function SnapshotCamera() {
 		const takeSnapshot = () => {
 			gl.render(scene, camera);
 			const dataUrl = gl.domElement.toDataURL("image/png");
-			window.dispatchEvent(new CustomEvent("snapshot-taken", { detail: dataUrl }));
+
+			const byteString = atob(dataUrl.split(',')[1]);
+			const mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
+			const ab = new ArrayBuffer(byteString.length);
+			const ia = new Uint8Array(ab);
+			for (let i = 0; i < byteString.length; i++) {
+				ia[i] = byteString.charCodeAt(i);
+			}
+			const blob = new Blob([ab], { type: mimeString });
+
+			const url = URL.createObjectURL(blob);
+
+			window.dispatchEvent(new CustomEvent("snapshot-taken", { detail: url }));
 		};
 
 		window.addEventListener("take-snapshot", takeSnapshot);

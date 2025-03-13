@@ -21,10 +21,7 @@ root.render(
             <CameraApp />
             <NoInput />
           </>} />
-        <Route path="/:imgUrl" element={
-          <>
-            <CameraApp />
-          </>} />
+        <Route path="/:imgUrl/:mode?" element={<CameraApp />} />
       </Routes>
     </Router>
   </React.StrictMode>

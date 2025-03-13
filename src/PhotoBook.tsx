@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 function PhotoBook() {
 	const [photos, setPhotos] = useState<string[]>([]);
+	const params = useParams();
 
 	const onClickPhoto = (photo: string) => () => {
 		window.open(photo, '_blank');
@@ -10,20 +12,10 @@ function PhotoBook() {
 	useEffect(() => {
 		const snapshotTaken = (e: Event) => {
 			const customEvent = e as CustomEvent;
-			const dataUrl = customEvent.detail;
 
-			const byteString = atob(dataUrl.split(',')[1]);
-			const mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
-			const ab = new ArrayBuffer(byteString.length);
-			const ia = new Uint8Array(ab);
-			for (let i = 0; i < byteString.length; i++) {
-				ia[i] = byteString.charCodeAt(i);
+			if (params.mode !== 'liminal') {
+				setPhotos((photos) => [...photos, customEvent.detail]);
 			}
-			const blob = new Blob([ab], { type: mimeString });
-
-			const url = URL.createObjectURL(blob);
-
-			setPhotos((photos) => [...photos, url]);
 		}
 
 		window.addEventListener('snapshot-taken', snapshotTaken);
@@ -31,7 +23,7 @@ function PhotoBook() {
 		return () => {
 			window.removeEventListener('snapshot-taken', snapshotTaken);
 		}
-	}, []);
+	}, [params]);
 
 	return (
 		<div className="photo-book" style={{ padding: photos[0] ? 10 : 0 }}>

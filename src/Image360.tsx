@@ -18,6 +18,24 @@ function Image360() {
 	}, [scene, texture]);
 
 	useEffect(() => {
+		if (params.mode !== 'liminal') {
+			return;
+		}
+
+		const snapshotTaken = (e: Event) => {
+			const customEvent = e as CustomEvent;
+
+			setTexture(new THREE.TextureLoader().load(customEvent.detail));
+		}
+
+		window.addEventListener('snapshot-taken', snapshotTaken);
+
+		return () => {
+			window.removeEventListener('snapshot-taken', snapshotTaken);
+		}
+	}, [params]);
+
+	useEffect(() => {
 		if (params.imgUrl) {
 			const imgUrl = params.imgUrl;
 			const imgNumber = Number(imgUrl);
