@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router";
 import { getBlobUrlPhotos } from "./PhotoSaver";
 
 function PhotoBook() {
 	const [photos, setPhotos] = useState<string[]>([]);
 	const [visible, setVisible] = useState(true);
+	const photoBookRef = useRef<HTMLDivElement>(null!);
 	const params = useParams();
 
 	const onClickPhoto = (photo: string) => () => {
@@ -39,9 +40,17 @@ function PhotoBook() {
 		}
 	}, [params, photos]);
 
+	useEffect(() => {
+		// timeout to let the component rerender first
+		setTimeout(() => {
+			const photoBook = photoBookRef.current;
+			photoBook.scrollTo({ left: photoBook.scrollWidth, behavior: 'smooth' });
+		}, 1);
+	}, [photos]);
+
 	return (
 		<div className="photo-book-container" style={{ opacity: visible ? 1 : 0.2, translate: visible ? 0 : '0 calc(-100% + 2rem)' }} >
-			<div className="photo-book">
+			<div className="photo-book" ref={photoBookRef}>
 				<div className="photo-roll">
 					{photos.map((photo, index) =>
 						<img

@@ -28,15 +28,15 @@ function Image360Input() {
 
 		try {
 			const res = await fetch(imageUrl, { method: "HEAD" });
-
+			console.log(res.headers);
 			const type = res.headers.get("content-type");
 			if (type && type.startsWith("image/")) {
 				navigate(`/${encodeURIComponent(imageUrl)}`);
 			} else {
 				alert("The URL is not an image!");
 			}
-		} catch {
-			alert("Failed to load image!");
+		} catch (e: unknown) {
+			alert("Failed to load image! " + e);
 		}
 	};
 
