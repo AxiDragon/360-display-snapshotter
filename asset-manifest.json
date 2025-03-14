@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.91469f28.css",
-    "main.js": "./static/js/main.643f005e.js",
+    "main.js": "./static/js/main.8b2c3c23.js",
     "static/media/hoofdplaat.jpg": "./static/media/hoofdplaat.27c0575485b759b2a37a.jpg",
     "static/media/svedjehamn.jpg": "./static/media/svedjehamn.01893673e8731301be39.jpg",
     "static/media/vlieland.jpg": "./static/media/vlieland.ac64e43c522a325c2dc3.jpg",
@@ -9,10 +9,10 @@
     "static/media/b9088.jpg": "./static/media/b9088.665a398af862db0555aa.jpg",
     "index.html": "./index.html",
     "main.91469f28.css.map": "./static/css/main.91469f28.css.map",
-    "main.643f005e.js.map": "./static/js/main.643f005e.js.map"
+    "main.8b2c3c23.js.map": "./static/js/main.8b2c3c23.js.map"
   },
   "entrypoints": [
     "static/css/main.91469f28.css",
-    "static/js/main.643f005e.js"
+    "static/js/main.8b2c3c23.js"
   ]
 }
