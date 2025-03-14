@@ -30,6 +30,10 @@ function PhotoBook() {
 
 			if (params.mode !== 'liminal') {
 				setPhotos((photos) => [...photos, customEvent.detail.url]);
+				if (params.mode === 'playtest') {
+					//to be shared via a platform like Discord
+					navigator.clipboard.writeText(customEvent.detail.encodedUrl);
+				}
 			}
 		}
 
