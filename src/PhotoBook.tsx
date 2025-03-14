@@ -31,8 +31,16 @@ function PhotoBook() {
 			if (params.mode !== 'liminal') {
 				setPhotos((photos) => [...photos, customEvent.detail.url]);
 				if (params.mode === 'playtest') {
-					//to be shared via a platform like Discord
-					navigator.clipboard.writeText(customEvent.detail.encodedUrl);
+					if (params.modeType && params.modeType === 'copyText') {
+						//to be shared via a platform like Discord
+						navigator.clipboard.writeText(customEvent.detail.encodedUrl);
+					} else {
+						//this is the default behaviour of the playtest mode, downloads the image for sharing
+						const link = document.createElement('a');
+						link.href = customEvent.detail.url;
+						link.download = `360-display-snapshotter-${photos.length}.png`;
+						link.click();
+					}
 				}
 			}
 		}
