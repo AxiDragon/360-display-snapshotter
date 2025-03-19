@@ -13,7 +13,7 @@ function NoInput() {
 				<p>You haven't loaded a 360° image!</p>
 				<Image360Input />
 				<p>There's also {images.length} default images, like this one. To look at those, put #/ and the index (1 to {images.length}) after the URL, like:</p>
-				<p>{location}#/1 or {location}#/{images.length}</p>
+				<p>{location}#1 or {location}#{images.length}</p>
 				<p>In order to take pictures, clicking the 📷 button at the bottom of the screen.</p>
 				<p>You can toggle the photo gallery by clicking the semi-circle at the top.</p>
 				<p>You can click on photos in the photo gallery to view them in full size.</p>
