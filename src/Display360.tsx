@@ -5,7 +5,6 @@ import { Canvas } from '@react-three/fiber';
 import Image360 from './Image360';
 import SnapshotCamera from './SnapshotCamera';
 import ColorPicker from './ColorPicker';
-import LastPositionDebug from './LastPositionDebug';
 
 function Display360() {
   const [supportsDeviceOrientation, setSupportsDeviceOrientation] = useState(false);
@@ -29,7 +28,6 @@ function Display360() {
 
   return (
     <>
-      <LastPositionDebug />
       <Canvas>
         <SnapshotCamera />
         <ColorPicker />

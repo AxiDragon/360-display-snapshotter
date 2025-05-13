@@ -54,14 +54,9 @@ function ColorPicker() {
 
 		ctx.drawImage(img, 0, 0);
 
-		//image becomes double size for some reason - why?
-		console.log("Click position: ", x, y);
-		console.log("Image size: ", img.width, img.height);
-		console.log("Window size: ", window.innerWidth, window.innerHeight);
 		const pixel = ctx.getImageData(x * dpr, y * dpr, 1, 1).data;
 		const [r, g, b] = pixel;
 		const color = `rgb(${r}, ${g}, ${b})`;
-		console.log("Picked Color: %c   ", `background: ${color}; padding: 5px; border: 1px solid black`);
 
 		const newColors = [color, ...colors];
 
@@ -70,14 +65,6 @@ function ColorPicker() {
 		}
 
 		setColors(newColors);
-
-		//create a rectangle around the pixel for debugging
-		ctx.strokeStyle = "red";
-		ctx.lineWidth = 2;
-		ctx.strokeRect(x * dpr - 2, y * dpr - 2, 5, 5);
-
-		const canvasBlob = await fetch(canvas.toDataURL("image/png")).then((response) => response.blob());
-		// window.open(URL.createObjectURL(canvasBlob));
 	};
 
 	return (
