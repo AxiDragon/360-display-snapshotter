@@ -27,6 +27,10 @@ function ColorPicker() {
 		//TODO: only render specific pixel?
 		img.src = gl.domElement.toDataURL("image/png");
 
+		//NOTE: If I make some prior input (like a button that prevents accidental rotating),
+		// I could render a static image first and then get the color when the user selects something. 
+		// It would look less laggy
+		// then again, I am planning on using motion controls with phone
 		await new Promise<void>((res, rej) => {
 			img.onload = () => {
 				res();
