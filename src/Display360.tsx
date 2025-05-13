@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 
 import Image360 from './Image360';
 import SnapshotCamera from './SnapshotCamera';
+import ColorPicker from './ColorPicker';
 
 function Display360() {
   const [supportsDeviceOrientation, setSupportsDeviceOrientation] = useState(false);
@@ -26,12 +27,25 @@ function Display360() {
   }, []);
 
   return (
-    <Canvas>
-      <SnapshotCamera />
-      <Image360 />
-      {supportsDeviceOrientation ? <DeviceOrientationControls /> : <OrbitControls enablePan={false} />}
-      <PerspectiveCamera makeDefault fov={55} position={[1, 0, 0]} /> {/* For some reason, position can't be 0, 0, 0 otherwise the controls no longer work */}
-    </Canvas>
+    <>
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: 15,
+        height: 15,
+        pointerEvents: 'none'
+      }}>
+
+      </div>
+      <Canvas>
+        <SnapshotCamera />
+        <ColorPicker />
+        <Image360 />
+        {supportsDeviceOrientation ? <DeviceOrientationControls /> : <OrbitControls enablePan={false} />}
+        <PerspectiveCamera makeDefault fov={55} position={[1, 0, 0]} /> {/* For some reason, position can't be 0, 0, 0 otherwise the controls no longer work */}
+      </Canvas>
+    </>
   );
 }
 
