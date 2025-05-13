@@ -1,8 +1,11 @@
 import { useThree } from "@react-three/fiber";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const maxColors = 4;
 
 function ColorPicker() {
 	const { gl, scene, camera } = useThree();
+	const [colors, setColors] = useState<string[]>([]);
 
 	useEffect(() => {
 		const handleClick = async (event: MouseEvent) => {
@@ -16,11 +19,12 @@ function ColorPicker() {
 		return () => {
 			window.removeEventListener('click', handleClick);
 		};
-	}, [gl, scene, camera]);
+	}, [gl, scene, camera, colors]);
 
 	const pickColor = async (x: number, y: number) => {
 		gl.render(scene, camera);
 		const img = new Image();
+		//TODO: only render specific pixel?
 		img.src = gl.domElement.toDataURL("image/png");
 
 		await new Promise<void>((res, rej) => {
@@ -51,9 +55,28 @@ function ColorPicker() {
 		const [r, g, b] = pixel;
 		const color = `rgb(${r}, ${g}, ${b})`;
 		console.log("Picked Color: %c   ", `background: ${color}; padding: 5px; border: 1px solid black`);
+
+		const newColors = [color, ...colors];
+
+		if (newColors.length > maxColors) {
+			newColors.splice(maxColors);
+		}
+
+		console.log(newColors);
+
+		setColors(newColors);
 	};
 
-	return null;
+	return (
+		<>
+			{colors.map((color, i) => (
+				<mesh key={i} position={[i * 3, -1, 0]} scale={0.5}>
+					<boxGeometry args={[1, 1, 1]} />
+					<meshBasicMaterial color={color} />
+				</mesh>
+			))}
+		</>
+	);
 }
 
 export default ColorPicker;
